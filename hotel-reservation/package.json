@@ -1,0 +1,19 @@
+{
+  "name": "hotel-reservation",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Hotel Reservation & Front Desk Management System (MERN + TypeScript)",
+  "workspaces": ["shared", "server", "client"],
+  "scripts": {
+    "postinstall": "npm run build -w @hotel/shared",
+    "build": "npm run build -w @hotel/shared && npm run build -w @hotel/server && npm run build -w @hotel/client",
+    "typecheck": "npm run build -w @hotel/shared && npm run typecheck -w @hotel/server && npm run typecheck -w @hotel/client",
+    "dev:server": "npm run dev -w @hotel/server",
+    "dev:client": "npm run dev -w @hotel/client",
+    "db:local": "npm run db:local -w @hotel/server",
+    "seed": "npm run seed -w @hotel/server",
+    "test": "npm test -w @hotel/server",
+    "demo:concurrency": "npm run demo:concurrency -w @hotel/server"
+  },
+  "engines": { "node": ">=20.10" }
+}
